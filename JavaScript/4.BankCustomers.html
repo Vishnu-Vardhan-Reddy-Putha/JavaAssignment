@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Customers - Array Manipulation</title>
+</head>
+<body>
+
+<pre id="output"></pre> 
+
+<script>
+  const output = document.getElementById("output");
+
+ 
+  let customers = ["Raj", "Priya", "Karthik"];
+
+  output.textContent += "Original Customers: " + customers.join(", ") + "\n";
+
+  output.textContent += "Customers using for...of:\n";
+  for (let name of customers) {
+    output.textContent += name + "\n";
+  }
+
+ 
+  output.textContent += "\nCustomer IDs using for...in:\n";
+  for (let index in customers) {
+    output.textContent += index + "\n";
+  }
+
+  // push 'Anita'
+  customers.push("Anita");
+  output.textContent += "\nAfter push('Anita'): " + customers.join(", ") + "\n";
+
+  // pop last customer
+  customers.pop();
+  output.textContent += "After pop(): " + customers.join(", ") + "\n";
+
+  // insert 'Vikram' at position 1
+  customers.splice(1, 0, "Vikram");
+  output.textContent += "After insert 'Vikram' at position 1: " + customers.join(", ") + "\n";
+
+  // delete customer at position 2
+  customers.splice(2, 1);
+  output.textContent += "After delete at position 2: " + customers.join(", ") + "\n";
+
+  // final customer list
+  output.textContent += "Final Customers: " + customers.join(", ");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sports Team Player Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sports Team Player Details</h1>
+  <pre id="output"></pre>
+
+  <script>
+    const player = {
+      name: "Virat Kohli",
+      age: 36,
+      sport: "Cricket",
+      stats: {
+        matches: 500,
+        runs: 25000,
+        average: 57.2
+      }
+    };
+
+    const { name, sport, stats: { matches, runs, average } } = player;
+
+    const players = [
+      player,
+      {
+        name: "Lionel Messi",
+        age: 35,
+        sport: "Football",
+        stats: {
+          matches: 800,
+          goals: 720,
+          assists: 300
+        }
+      }
+    ];
+
+    const outputElement = document.getElementById('output');
+
+    let outputText = `Player ${name} plays ${sport}.\nMatches: ${matches} | Runs: ${runs} | Batting Average: ${average}\n\n`;
+
+    for (const { name, sport, stats } of players) {
+      if (sport === "Cricket") {
+        const { matches, runs, average } = stats;
+        outputText += `Player ${name} plays ${sport}.\nMatches: ${matches} | Runs: ${runs} | Batting Average: ${average}\n\n`;
+      } else if (sport === "Football") {
+        const { matches, goals, assists } = stats;
+        outputText += `Player ${name} plays ${sport}.\nMatches: ${matches} | Goals: ${goals} | Assists: ${assists}\n\n`;
+      }
+    }
+
+    outputElement.textContent = outputText.trim();
+  </script>
+</body>
+</html>

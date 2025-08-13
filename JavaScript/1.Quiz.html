@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Game</title>
+</head>
+<body>
+
+<script>
+  // Step 1: Welcome the user
+  alert("Welcome to the Quiz Game!");
+
+  // Step 2: Ask for the user's name
+  let userName = prompt("What is your name?");
+
+  // Step 3: Ask if they are ready for the quiz
+  let ready = confirm("Hi " + userName + "! Are you ready for the quiz?");
+
+  if (ready) {
+    // Step 4: Ask a multiple-choice question
+    let answer = prompt("Which planet is known as the Red Planet?\nA. Earth\nB. Mars\nC. Jupiter");
+
+    // Step 5: Check the answer and display result
+    if (answer.toUpperCase() === "B" || answer.toLowerCase() === "mars") {
+      alert("Correct! Mars is the Red Planet.");
+    } else {
+      alert("Wrong answer. The correct answer is B. Mars.");
+    }
+  } else {
+    alert("No problem, " + userName + ". Come back when you're ready!");
+  }
+</script>
+
+</body>
+</html>

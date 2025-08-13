@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Switchboard Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Switchboard Control Simulation</h1>
+  <pre id="output"></pre>
+  <pre id="error" class="error"></pre>
+
+  <script>
+    // 1. Declare building name using const
+    const buildingName = "Sunrise Apartments";
+
+    // 2. Declare let variable for device status
+    let status;
+
+    // Devices controlled by switches
+    const devices = ["Light", "Fan", "AC"];
+
+    // 3. Use var for loop counter
+    var i;
+
+    // Output container
+    let outputText = "";
+
+    // 4. Loop through switches and toggle status, print messages
+    for (i = 0; i < devices.length; i++) {
+      // Toggle status: ON for even index, OFF for odd index
+      status = (i % 2 === 0) ? "ON" : "OFF";
+
+      outputText += `Checking Switch ${i + 1}: ${devices[i]} is ${status}\n`;
+    }
+
+    // 5. After loop, print final messages
+    outputText += `All switches checked for ${buildingName}.\n`;
+    outputText += `Outside loop: var counter is ${i}`;
+
+    // Display output in the <pre> tag
+    document.getElementById("output").textContent = outputText;
+
+    // 6. Try to reassign the const variable and catch the error
+    try {
+      buildingName = "Sunset Towers";  // This will cause an error
+    } catch (error) {
+      // Display error message in the page and console
+      const errorMsg = "Error: " + error.message;
+      document.getElementById("error").textContent = errorMsg;
+      console.error(errorMsg);
+    }
+  </script>
+</body>
+</html>

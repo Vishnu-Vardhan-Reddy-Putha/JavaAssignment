@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Store Management</title>
+</head>
+<body>
+
+<pre id="output"></pre>
+
+<script>
+  const output = document.getElementById("output");
+
+  // 1. JSON array of books
+  let books = [
+    { title: "JavaScript Basics", author: "Anu", price: 450, available: true },
+    { title: "HTML & CSS", author: "Devi", price: 350, available: false }
+  ];
+
+  // 2. Display all books
+  output.textContent += "All Books:\n";
+  for (let book of books) {
+    output.textContent += `Title: ${book.title}, Author: ${book.author}, Price: ₹${book.price}, Available: ${book.available}\n`;
+  }
+
+  // 3. Display only available books
+  output.textContent += "\nAvailable Books:\n";
+  for (let book of books) {
+    if (book.available) {
+      output.textContent += `Title: ${book.title}, Author: ${book.author}, Price: ₹${book.price}\n`;
+    }
+  }
+
+  // 4. Add a new book
+  output.textContent += "\nAfter Adding:\n";
+  books.push({ title: "Node.js Guide", author: "Kiran", price: 600, available: true });
+
+  // Display titles after adding
+  output.textContent += books.map(book => book.title).join(", ") + "\n";
+
+  // 5. Update price of a specific book
+  books[0].price = 500;
+  output.textContent += "\nAfter Price Update:\n";
+  output.textContent += `${books[0].title} - ₹${books[0].price}\n`;
+
+  // 6. Delete a book (remove index 0)
+  books.splice(0, 1);
+
+  // Display titles after deletion
+  output.textContent += "\nAfter Deletion:\n";
+  output.textContent += books.map(book => book.title).join(", ") + "\n";
+</script>
+
+</body>
+</html>

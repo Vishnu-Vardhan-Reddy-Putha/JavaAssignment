@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Equality & Inequality Checker</title>
+</head>
+<body>
+
+<script>
+  // Ask for two values
+  let value1 = prompt("Enter the first value:");
+  let value2 = prompt("Enter the second value:");
+
+  // Show types
+  let type1 = typeof value1;
+  let type2 = typeof value2;
+
+  // Convert one of them to number for demonstration (like in the sample)
+  let convertedValue2 = Number(value2);
+  let convertedType2 = typeof convertedValue2;
+
+  // Perform comparisons
+  let result1 = value1 == convertedValue2;   // Loose equality
+  let result2 = value1 === convertedValue2;  // Strict equality
+  let result3 = value1 != convertedValue2;   // Loose inequality
+  let result4 = value1 !== convertedValue2;  // Strict inequality
+
+  // Build explanation
+  let output = `First Value: ${value1} (${type1})\n` +
+               `Second Value: ${convertedValue2} (${convertedType2})\n\n` +
+
+               `Using == : ${result1} → Equality ignores type\n` +
+               `Using === : ${result2} → Strict equality checks type too\n` +
+               `Using != : ${result3} → Values considered equal\n` +
+               `Using !== : ${result4} → Strict inequality because types differ`;
+
+  alert(output);
+</script>
+
+</body>
+</html>

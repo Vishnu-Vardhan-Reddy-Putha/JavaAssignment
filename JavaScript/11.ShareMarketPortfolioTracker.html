@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Share Market Portfolio Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    input, button {
+      margin: 5px 0;
+      padding: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    label {
+      margin-top: 10px;
+      display: block;
+      font-weight: bold;
+    }
+    #output {
+      margin-top: 20px;
+      white-space: pre-line;
+      background: #f3f3f3;
+      padding: 10px;
+      border-radius: 6px;
+      min-height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Share Market Portfolio Tracker</h1>
+
+  <label for="company">Company Name:</label>
+  <input type="text" id="company" placeholder="e.g. TCS" />
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" placeholder="e.g. 10" min="1" />
+
+  <label for="price">Price per Share (₹):</label>
+  <input type="number" id="price" placeholder="e.g. 3500" min="1" />
+
+  <button id="buyBtn">Buy Shares</button>
+  <button id="sellBtn">Sell Shares</button>
+  <button id="valueBtn">Show Portfolio Value</button>
+
+  <div id="output"></div>
+
+  <script>
+    function createPortfolioTracker() {
+      const portfolio = [];
+
+      function buyShare(company, quantity, price) {
+        const existing = portfolio.find(item => item.company.toLowerCase() === company.toLowerCase());
+        if (existing) {
+          existing.quantity += quantity;
+          existing.price = price;
+        } else {
+          portfolio.push({ company, quantity, price });
+        }
+        return `Bought ${quantity} shares of ${company} at ₹${price} each.`;
+      }
+
+      function sellShare(company, quantity) {
+        const existing = portfolio.find(item => item.company.toLowerCase() === company.toLowerCase());
+        if (!existing) {
+          return `No shares of ${company} found.`;
+        }
+        if (quantity > existing.quantity) {
+          return `Cannot sell ${quantity} shares of ${company}. Only ${existing.quantity} available.`;
+        }
+        existing.quantity -= quantity;
+        let message = `Sold ${quantity} shares of ${company}.`;
+        if (existing.quantity === 0) {
+          const index = portfolio.indexOf(existing);
+          portfolio.splice(index, 1);
+        }
+        return message;
+      }
+
+      function totalValue() {
+        const total = portfolio.reduce((sum, item) => sum + item.quantity * item.price, 0);
+        return `Portfolio Value: ₹${total}`;
+      }
+
+      return { buyShare, sellShare, totalValue };
+    }
+
+    const tracker = createPortfolioTracker();
+
+    const output = document.getElementById('output');
+    const companyInput = document.getElementById('company');
+    const quantityInput = document.getElementById('quantity');
+    const priceInput = document.getElementById('price');
+    const buyBtn = document.getElementById('buyBtn');
+    const sellBtn = document.getElementById('sellBtn');
+    const valueBtn = document.getElementById('valueBtn');
+
+    function clearInputs() {
+      quantityInput.value = '';
+      priceInput.value = '';
+    }
+
+    buyBtn.addEventListener('click', () => {
+      const company = companyInput.value.trim();
+      const quantity = parseInt(quantityInput.value, 10);
+      const price = parseFloat(priceInput.value);
+
+      if (!company || !quantity || quantity <= 0 || !price || price <= 0) {
+        output.textContent = 'Please enter valid company name, quantity and price.';
+        return;
+      }
+
+      const message = tracker.buyShare(company, quantity, price);
+      output.textContent = message;
+      clearInputs();
+    });
+
+    sellBtn.addEventListener('click', () => {
+      const company = companyInput.value.trim();
+      const quantity = parseInt(quantityInput.value, 10);
+
+      if (!company || !quantity || quantity <= 0) {
+        output.textContent = 'Please enter valid company name and quantity to sell.';
+        return;
+      }
+
+      const message = tracker.sellShare(company, quantity);
+      output.textContent = message;
+      clearInputs();
+    });
+
+    valueBtn.addEventListener('click', () => {
+      const message = tracker.totalValue();
+      output.textContent = message;
+    });
+  </script>
+</body>
+</html>
