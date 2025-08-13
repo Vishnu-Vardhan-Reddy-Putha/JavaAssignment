@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tirupati Darshan Booking</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .card {
+      max-width: 600px;
+      margin: auto;
+      margin-top: 40px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .form-icon {
+      width: 50px;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body class="bg-light">
+
+  <div class="card bg-white">
+    <!-- Temple Icon -->
+    <img src=data:image/jpeg;base64,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 alt="Temple Icon" class="form-icon mb-2">
+    <!-- Form Header -->
+    <h4 class="text-center mb-4">Tirupati Temple Darshan Booking Form</h4>
+
+    <form id="darshanForm" novalidate>
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Mobile Number</label>
+        <div class="input-group">
+          <span class="input-group-text">+91</span>
+          <input type="tel" class="form-control" pattern="[0-9]{10}" required placeholder="1234567890">
+        </div>
+      </div>
+
+      <!-- Gender -->
+      <div class="mb-3">
+        <label class="form-label">Gender</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="gender" id="other" value="Other">
+          <label class="form-check-label" for="other">Other</label>
+        </div>
+      </div>
+
+      <!-- Date and Time Slot -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="date" class="form-label">Darshan Date</label>
+          <input type="date" class="form-control" id="date" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="timeSlot" class="form-label">Darshan Time Slot</label>
+          <select class="form-select" id="timeSlot" required>
+            <option selected disabled value="">Choose...</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Number of Tickets -->
+      <div class="mb-3">
+        <label for="tickets" class="form-label">Number of Tickets</label>
+        <input type="number" class="form-control" id="tickets" min="1" max="10" required>
+      </div>
+
+      <!-- Seva Type -->
+      <div class="mb-3">
+        <label class="form-label">Seva Type</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="archana" value="Archana">
+          <label class="form-check-label" for="archana">Archana</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="abhishekam" value="Abhishekam">
+          <label class="form-check-label" for="abhishekam">Abhishekam</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="specialEntry" value="Special Entry Darshan">
+          <label class="form-check-label" for="specialEntry">Special Entry Darshan</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="suprabhata" value="Suprabhata Seva">
+          <label class="form-check-label" for="suprabhata">Suprabhata Seva</label>
+        </div>
+      </div>
+
+      <!-- ID Proof -->
+      <div class="mb-3">
+        <label for="idProof" class="form-label">ID Proof Upload 
+          <i class="bi bi-info-circle" data-bs-toggle="tooltip" title="Upload image or PDF format only."></i>
+        </label>
+        <input class="form-control" type="file" id="idProof" accept="image/*,.pdf">
+      </div>
+
+      <!-- Address -->
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" id="address" rows="2"></textarea>
+      </div>
+
+      <!-- Submit and Reset -->
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS + Tooltip -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Optional: Modal Popup on Submit -->
+  <script>
+    // Tooltip
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach(t => new bootstrap.Tooltip(t));
+
+    // Modal Popup Alert on Submit
+    document.getElementById('darshanForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("✅ Your Tirupati Darshan Booking is Confirmed!");
+    });
+  </script>
+</body>
+</html>
