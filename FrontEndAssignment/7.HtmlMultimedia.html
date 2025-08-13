@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Multimedia Lab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 1.8em;
+    }
+    section {
+      border: 1px solid #ccc;
+      padding: 20px;
+      max-width: 600px;
+    }
+    video, audio, embed, iframe {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 100%;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    iframe {
+      height: 150px;
+      border: 1px solid #ccc;
+    }
+    embed {
+      height: 300px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>7. HTML MULTIMEDIA::</h2>
+
+  <section>
+    <h1>HTML5 Multimedia Lab</h1>
+    <p>This page demonstrates video, audio, embed (PDF), iframe, and inline SVG. Below is a visual preview.</p>
+
+    <!-- Video -->
+    <p class="section-title">Video (sample.mp4)</p>
+    <video controls poster="poster.jpg">
+      <source src="E:\HTML\NTR.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Audio -->
+    <p class="section-title">Audio (sample.mp3)</p>
+    <audio controls loop>
+      <source src="C:\Users\putha\Downloads\epic.mp3" type="audio/mp3">
+      Your browser does not support the audio tag.
+    </audio>
+
+    <!-- Embed PDF -->
+    <p class="section-title">Embed (document.pdf)</p>
+    <embed src="C:\Users\putha\Downloads\Review Presentation 1.pptx" type="application/pdf">
+    <p>If not visible, download <a href="document.pdf">document.pdf</a></p>
+
+    <!-- Iframe -->
+    <p class="section-title" style="color: red;">Iframe (demo.html)</p>
+    <iframe src="E:\HTML\PracticeHtml\FrontEndAssignment\1.OnlineBookStore.html" title="Embedded page preview"></iframe>
+    <p>Preview created for the HTML5 Multimedia Lab. Files saved in the workspace.</p>
+
+    <!-- Inline SVG -->
+    <p class="section-title">Inline SVG</p>
+    <hr>
+
+  </section>
+
+</body>
+</html>
